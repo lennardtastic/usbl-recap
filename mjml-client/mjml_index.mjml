@@ -1,26 +1,40 @@
 <mjml>
-    <!-- Head + Stylign
+    <!-- Head + Styling
     =========================================================-->
     <mj-head>
-    <mj-style>
-      @media all and (max-width: 480px) {
-        div[style*="color:#F45e46;"] {
-          text-align: center !important
-        }
-      }
+      <mj-raw>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+      </mj-raw>
+    <mj-style inline="inline">
       .nmbr-number{
         font-size: 3rem;
       }
+      .nmbr-title{
+        text-transform: uppercase;
+      }
       .nmbr-change{
         font-weight: 700;
+        font-size: 1rem;
       }
-    </mj-style>
-    <mj-style inline="inline">
-      .link-nostyle {
-        color: inherit;
-        text-decoration: none
+      .nmbr-c-green{
+        color: #8AC249;
       }
+      .nmbr-c-orange{
+        color: #FF5621;
+      }
+      .body-c-grey{
+        color: grey;
+      }
+      .footer-link{
+        color: grey;
+      }
+
     </mj-style>
+
+    <mj-font name="Raleway" href="https://fonts.googleapis.com/css?family=Raleway:600" />
+    <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <mj-font name="Opensans" href="https://fonts.googleapis.com/css?family=Open+Sans" />
   </mj-head>
   <mj-body>
 <!-- Header  + Logo
@@ -37,8 +51,10 @@
       =========================================================-->
       <mj-section background-color="white" padding-bottom="0" padding-top="0">
         <mj-column width="100%">
-          <mj-text align="center" font-size="13" color="grey" font-family="Ubuntu, Helvetica, Arial, sans-serif" padding-left="25" padding-right="25" padding-bottom="0" padding-top="0">
-            <h1>Hi [[FirstName]],</h1>
+          <mj-text align="center" font-size="13" color="grey" font-family="Raleway, Ubuntu Helvetica, Arial, sans-serif" padding-left="25" padding-right="25" padding-bottom="0" padding-top="0">
+            <h1>Hi Sophie!</h1>
+          </mj-text>
+            <mj-text align="center" font-size="14" color="grey" font-family="Roboto, Helvetica, Arial, sans-serif" padding-left="25" padding-right="25" padding-bottom="0" padding-top="0">
             <p>we hope you've had an awesome weekend. Below you'll find a summary of you're Usabilla results. Make sure you share them or forward them!</p>
           </mj-text>
         </mj-column>
@@ -49,30 +65,30 @@
       <mj-section>
         <mj-column>
           <mj-text align="center">
-            <p class="nmbr-title">Average Mood Rating</p>
-            <h2 class="nmbr-number">5,8</h2>
-            <p class="nmbr-subtext"><span class= "nmbr-change">+5%</span> from last week.</p>
+            <p class="nmbr-title">Average Mood</p>
+            <h2 class="nmbr-number">3.7</h2>
+            <p class="nmbr-subtext"><span class= "nmbr-change nmbr-c-green">+0.5</span> from last week.</p>
           </mj-text>
         </mj-column>
         <mj-column>
           <mj-text align="center">
             <p class="nmbr-title">Overall NPS Score</p>
-            <h2 class="nmbr-number">5,8</h2>
-            <p class="nmbr-subtext"><span class= "nmbr-change">+5%</span> from last week.</p>
+            <h2 class="nmbr-number">7</h2>
+            <p class="nmbr-subtext"><span class= "nmbr-change nmbr-c-orange">-1</span> from last week.</p>
           </mj-text>
         </mj-column>
         <mj-column>
           <mj-text align="center">
             <p class="nmbr-title">Overall CES Score</p>
-            <h2 class="nmbr-number">5,8</h2>
-            <p class="nmbr-subtext"><span class= "nmbr-change">+5%</span> from last week.</p>
+            <h2 class="nmbr-number">2,8</h2>
+            <p class="nmbr-subtext"><span class= "nmbr-change nmbr-c-green">-0.3</span> from last week.</p>
           </mj-text>
         </mj-column>
       </mj-section>
 
       <!-- Trending
       =========================================================-->
-      <mj-section background-color="#00A5CB" vertical-align="middle" padding-bottom="5" padding-top="5">
+      <mj-section background-color="#00a4cb" vertical-align="middle" padding-bottom="5" padding-top="5">
         <mj-column vertical-align="middle" width="100%">
 
           <mj-text align="center" color="#FFF" font-size="13" font-family="Helvetica" vertical-align="middle" padding-left="25" padding-right="25" padding-bottom="10" padding-top="10"><span style="font-size:20px; font-weight:bold">Trending Campaigns</span>
@@ -87,24 +103,24 @@
         <mj-column>
           <mj-table>
             <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
-              <th style="padding: 0 15px 0 0;">Name</th>
+              <th style="padding: 0 15px 0 0;">Campaign Name</th>
               <th style="padding: 0 15px;">Responses</th>
               <th style="padding: 0 0 0 15px;">Change since last week</th>
             </tr>
             <tr>
               <td style="padding: 0 15px 0 0;">WebNPS-EN</td>
-              <td style="padding: 0 15px;">27048</td>
-              <td style="padding: 0 0 0 15px;">&#9650; + 384</td>
+              <td style="padding: 0 15px;">2748</td>
+              <td style="padding: 0 0 0 15px;">&#9650; + 144</td>
             </tr>
             <tr>
-              <td style="padding: 0 15px 0 0;">WebNPS-US</td>
-              <td style="padding: 0 15px;">39365</td>
-              <td style="padding: 0 0 0 15px;">&#9650; + 252</td>
+              <td style="padding: 0 15px 0 0;">WebNPS-US-December-Awesome</td>
+              <td style="padding: 0 15px;">3365</td>
+              <td style="padding: 0 0 0 15px;">&#9650; + 82</td>
             </tr>
             <tr>
-              <td style="padding: 0 15px 0 0;">WebNPS-US</td>
-              <td style="padding: 0 15px;">39365</td>
-              <td style="padding: 0 0 0 15px;">&#9650; + 252</td>
+              <td style="padding: 0 15px 0 0;">WebNPS-US2017-aug</td>
+              <td style="padding: 0 15px;">3936</td>
+              <td style="padding: 0 0 0 15px;">&#9650; + 53</td>
             </tr>
           </mj-table>
         </mj-column>
@@ -112,34 +128,41 @@
 
       <!-- Two Column Section
       =========================================================-->
-      <mj-section background-color="#00A5CB" padding-bottom="20" padding-top="20">
+      <mj-section background-color="#00a4cb" padding-bottom="20" padding-top="20">
         <mj-column vertical-align="top" width="50%">
-          <mj-button background-color="#F4606E" color="#FFF" font-size="1rem" align="center" font-weight="bold" border="none" padding="15px 30px" border-radius=".188rem" href="https://mjml.io" font-family="Helvetica" padding-left="25" padding-right="25" padding-bottom="10"
+          <mj-button background-color="#F4606E" color="#FFF" font-size="1rem" align="center" font-weight="bold" border="none" padding="15px 30px" border-radius=".188rem" href="https://mjml.io" font-family="Roboto" text-transform="uppercase" padding-left="25" padding-right="25" padding-bottom="10"
             padding-top="10" width="200px">
-            Login
+            Log into Usabilla
           </mj-button>
         </mj-column>
-        <mj-column vertical-align="top" width="50%">
-          <mj-button background-color="#F4606E" color="#FFF" font-size="1rem" align="center" font-weight="bold" border="none" padding="15px 30px" border-radius=".188rem" href="https://mjml.io" font-family="Helvetica" padding-left="25" padding-right="25" padding-bottom="10"
-            padding-top="10" width="200px">
-            Download as PDF
-          </mj-button>
+      </mj-section>
+
+      <!-- Cross-Sell section
+      =========================================================-->
+      <mj-section padding-bottom="0">
+        <mj-column>
+          <mj-text align="center" color="grey" padding-bottom="0" padding-top="0" padding-left="25" padding-right="25" font-family="Roboto, Helvetica, Arial, sans-serif">
+            Want to receive advanced reports?  Depending on your needs, we can provide customized reports weekly, monthly or quarterly.<br> To find out more about Usabilla Reporting, contact your Customer Success Manager or email <a class="body-c-grey" href="mailto:support@usabilla.com">support@usabilla.com</a>
+          </mj-text>
         </mj-column>
       </mj-section>
 
       <!-- Footer and Closing
       =========================================================-->
-      <mj-section background-color="#00A5CB" padding-bottom="5" padding-top="0">
-        <mj-column vertical-align="middle" width="100%">
-          <mj-divider border-color="#ffffff" border-width="2px" border-style="solid" vertical-align="middle" padding-left="20" padding-right="20" padding-bottom="0" padding-top="0">
-
-          </mj-divider>
-          <mj-image src="http://why.usabilla.com/aviation/images/navigation/logo-usabilla.svg" width="150"/>
-          <mj-text align="center" color="white">
-            <p>Don't want to receive the weekly summary?<br> Click <a href=#>here</a> to unsubcribe</p>
-          </mj-text>
+      <mj-section>
+        <mj-column vertical-align="top" width="100%">
+          <mj-image src="http://lennardschoemaker.nl/img/recap_mail_footer.png" alt="" align="center" border="none" width="960" vertical-align="middle" padding-left="0" padding-right="0" padding-bottom="0" padding-top="0">
+          </mj-image>
         </mj-column>
       </mj-section>
+      <mj-section>
+        <mj-column>
+        <mj-text align="center" color="grey" font-family="Roboto, Helvetica, Arial, sans-serif">
+        <p>This email is sent to Team administrators of your Usabilla Account. If you'd prefer not to receive these emails, you can unsubscribe <a href=# class="footer-link">here</a> .<br><br>
+          Made by Usabilla  •  Our Blog	<br>
+          Rokin 16, 5th Floor  •  Amsterdam  •  1012KR</p>
+        </mj-text>
+        </mj-column>
     </mj-container>
   </mj-body>
 </mjml>
