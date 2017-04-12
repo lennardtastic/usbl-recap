@@ -36,8 +36,9 @@
     <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto" />
     <mj-font name="Opensans" href="https://fonts.googleapis.com/css?family=Open+Sans" />
   </mj-head>
-  <mj-body>
+  <mj-body></mj-body>
 
+<script id="template" type="text/x-handlebars-template">
 <!-- Header  + Logo
 =========================================================-->
     <mj-container background-color="smokegrey">
@@ -54,7 +55,7 @@
         <mj-column width="100%">
           <mj-text align="center" font-size="13" color="grey" font-family="Raleway, Ubuntu Helvetica, Arial, sans-serif" padding-left="25" padding-right="25" padding-bottom="0" padding-top="0">
             <!-- HB target H1 Name-->
-            <h1 id="hb-target-h1-Name">Hi Sophie!</h1>
+            <h1 id="hb-target-h1-Name">Hi {{to_name}},</h1>
           </mj-text>
             <mj-text align="center" font-size="14" color="grey" font-family="Roboto, Helvetica, Arial, sans-serif" padding-left="25" padding-right="25" padding-bottom="0" padding-top="0">
             <p>we hope you've had an awesome weekend. Below you'll find a summary of you're Usabilla results. Make sure you share them or forward them!</p>
@@ -64,28 +65,29 @@
 
       <!-- Chart Summary
       =========================================================-->
+
       <mj-section>
         <mj-column>
           <mj-text align="center">
             <p class="nmbr-title">Average Mood</p>
-            <h2 class="nmbr-number" id="hb-target-number-mood">3.7</h2> <!-- HB target Name-->
-            <p class="nmbr-subtext"><span class= "nmbr-change nmbr-c-green" id="hb-target-subtext-mood">+0.5</span><!-- HB target Name-->
+            <h2 class="nmbr-number" id="hb-target-number-mood">{{mood_current}}</h2> <!-- HB target Name-->
+            <p class="nmbr-subtext"><span class= "nmbr-change {{mood_decreased}}" id="hb-target-subtext-mood">{{mood_difference}}</span><!-- HB target Name-->
                from last week.</p>
           </mj-text>
         </mj-column>
         <mj-column>
           <mj-text align="center">
             <p class="nmbr-title">Overall NPS Score</p>
-            <h2 class="nmbr-number" id="hb-target-number-nps">7</h2>
-            <p class="nmbr-subtext"><span class= "nmbr-change nmbr-c-orange" id="hb-target-subtext-nps">-1</span> <!-- HB target Name-->
+            <h2 class="nmbr-number" id="hb-target-number-nps">{{nps_current}}</h2>
+            <p class="nmbr-subtext"><span class= "nmbr-change {{nps_decreased}}" id="hb-target-subtext-nps">{{nps_difference}}</span> <!-- HB target Name-->
                from last week.</p>
           </mj-text>
         </mj-column>
         <mj-column>
           <mj-text align="center">
             <p class="nmbr-title">Overall CES Score</p>
-            <h2 class="nmbr-number" id="hb-target-number-ces">2,8</h2>
-            <p class="nmbr-subtext"><span class= "nmbr-change nmbr-c-green" id="hb-target-subtext-ces">-0.3</span> <!-- HB target Name-->
+            <h2 class="nmbr-number" id="hb-target-number-ces">{{ces_current}}</h2>
+            <p class="nmbr-subtext"><span class= "nmbr-change {{ces_decreased}}" id="hb-target-subtext-ces">{{ces_difference}}</span> <!-- HB target Name-->
                from last week.</p>
           </mj-text>
         </mj-column>
@@ -103,8 +105,8 @@
 
       <!-- Three Column Section for Summary Numbers
       =========================================================-->
+    <script id="entry-template" type="text/x-handlebars-template">
       <mj-section background-color="#FFFFFF" padding-bottom="15" padding-top="15">
-
         <mj-column>
           <mj-table>
             <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
@@ -119,7 +121,7 @@
             </tr>
             <tr>
               <td style="padding: 0 15px 0 0;"><span id="hb-target-trending-name-2">WebNPS-US-December-Awesome</span></td><!-- HB target Name 2 -->
-              <td style="padding: 0 15px;"><span id="hb-target-trending-count-2">3365</span></td><!-- HB target Count 2-->
+              <td style="padding: 0 15px;"><span id="hb-target-trending-count-2">{{}}</span></td><!-- HB target Count 2-->
               <td style="padding: 0 0 0 15px;">&#9650; + <span id="hb-target-trending-change-2">82</span></td><!-- HB target Change 2 -->
             </tr>
             <tr>
@@ -130,6 +132,7 @@
           </mj-table>
         </mj-column>
       </mj-section>
+    </script>
 
       <!-- Two Column Section
       =========================================================-->
@@ -169,29 +172,5 @@
         </mj-text>
         </mj-column>
     </mj-container>
-
-    <mj-raw>
-      <!-- Handlebars Templates
-      =========================================================-->
-      <script id="template" type="text/x-handlebars-template">
-        <p>Use the <strong>{{power}}</strong>, {{name}}!</p>
-      </script>
-
-      <script>
-      window.onload = function() {
-          //Grab the inline template
-          var template = document.getElementById('template').innerHTML;
-
-          //Compile the template
-          var compiled_template = Handlebars.compile(template);
-
-          //Render the data into the template
-          var rendered = compiled_template({name: "Luke", power: "force"});
-
-          //Overwrite the contents of #target with the renderer HTML
-          document.getElementById('hb-target-subtext-nps').innerHTML = rendered;
-        }
-      </script>
-    </mj-raw>
-  </mj-body>
-</mjml>
+    </mjml>
+  </script>
