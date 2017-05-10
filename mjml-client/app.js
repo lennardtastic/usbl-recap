@@ -134,6 +134,7 @@ function w3IncludeHTML() {
   z = document.getElementsByTagName("*");
   for (i = 0; i < z.length; i++) {
     elmnt = z[i];
+    file = elmnt.getAttribute("w3-include-html");
     if (file) {
       xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
